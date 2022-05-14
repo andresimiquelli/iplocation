@@ -19,6 +19,8 @@ public class AppConfigs {
     public static final String REDIS_SERVER_HOST = "REDIS_SERVER_HOST";
     public static final String REDIS_SERVER_PORT = "REDIS_SERVER_PORT";
     public static final String REDIS_SERVER_DB = "REDIS_SERVER_DB";
+    public static final String IPSTACK_ACCESS_KEY = "IPSTACK_ACCESS_KEY";
+    public static final String IPSTACK_SERVICE_URL = "IPSTACK_SERVICE_URL";
     
     private static Properties properties;
     
