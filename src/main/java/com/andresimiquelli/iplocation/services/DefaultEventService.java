@@ -16,10 +16,9 @@ public class DefaultEventService implements EventService{
 	
 	private final LocationService locationService;
 	private final CacheService cacheService;
-	private Properties configs;
 	
-	public DefaultEventService() {
-		configs = AppConfigs.get();
+	
+	public DefaultEventService(Properties configs) {
 		
 		cacheService = new RedisCacheService(
 				configs.getProperty(AppConfigs.REDIS_SERVER_HOST), 
@@ -34,9 +33,10 @@ public class DefaultEventService implements EventService{
 		);
 	}
 	
-	public static EventService getInstance() {
+	public static EventService getInstance(Properties configs) {
+		
 		if(instance == null)
-			return new DefaultEventService();
+			return new DefaultEventService(configs);
 		
 		return instance;
 	}

@@ -1,9 +1,11 @@
 package com.andresimiquelli.iplocation.services;
 
 import java.util.Date;
+import java.util.Properties;
 
 import org.json.JSONObject;
 
+import com.andresimiquelli.iplocation.AppConfigs;
 import com.andresimiquelli.iplocation.contracts.EventService;
 
 import junit.framework.TestCase;
@@ -12,7 +14,8 @@ public class DefaultEventServiceTest extends TestCase {
 
 	public void testEventProccess() {
 		
-		EventService eventService = DefaultEventService.getInstance();
+		Properties configs = AppConfigs.get("test");
+		EventService eventService = DefaultEventService.getInstance(configs);
 		
 		Date date = new Date();
 		JSONObject event = new JSONObject();
