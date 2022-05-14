@@ -20,10 +20,13 @@ public class DefaultEventService implements EventService{
 	
 	public DefaultEventService(Properties configs) {
 		
+		long timeout = 30*60; //30 minutes
+		
 		cacheService = new RedisCacheService(
 				configs.getProperty(AppConfigs.REDIS_SERVER_HOST), 
 				Integer.valueOf(configs.getProperty(AppConfigs.REDIS_SERVER_PORT)), 
-				Integer.valueOf(configs.getProperty(AppConfigs.REDIS_SERVER_DB))
+				Integer.valueOf(configs.getProperty(AppConfigs.REDIS_SERVER_DB)),
+				timeout
 		);
 		
 		locationService = new IpStackLocationService(
