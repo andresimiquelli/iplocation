@@ -37,6 +37,8 @@ public class DefaultStreamProcessor implements StreamProcessor {
 			String inputTopic = configs.getProperty(AppConfigs.INPUT_TOPIC);
 			String outputTopic = configs.getProperty(AppConfigs.OUTPUT_TOPIC);
 			
+			System.out.println("TOPICS "+inputTopic+" "+outputTopic);
+			
 			EventService eventService = DefaultEventService.getInstance(configs);
 			
 			StreamsBuilder streamBuilder = new StreamsBuilder();
@@ -53,7 +55,7 @@ public class DefaultStreamProcessor implements StreamProcessor {
 
 	public Properties getConfigs() {
 		
-		String bootstrap = configs.getProperty(AppConfigs.KAFKA_SERVER_HOST)+":"+(AppConfigs.KAFKA_SERVER_PORT);
+		String bootstrap = configs.getProperty(AppConfigs.KAFKA_SERVER_HOST)+":"+configs.getProperty(AppConfigs.KAFKA_SERVER_PORT);
 		
 		Properties streamProps = new Properties();
 		streamProps.put(StreamsConfig.APPLICATION_ID_CONFIG, configs.getProperty(AppConfigs.KAFKA_APP_ID));

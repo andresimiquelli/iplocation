@@ -14,7 +14,7 @@ import junit.framework.*;
 public class RedisCacheServiceTest extends TestCase {
 
 	public void testCache() {
-		Properties configs = AppConfigs.get();
+		Properties configs = AppConfigs.get("test");
 		long timeout = 3;
 		CacheService cache = new RedisCacheService(
 				configs.getProperty(AppConfigs.REDIS_SERVER_HOST),

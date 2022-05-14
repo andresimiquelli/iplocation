@@ -15,7 +15,7 @@ public class IpStackLocationServiceTest extends TestCase {
 
 	public void testFetchedAndCached() {
 		
-		Properties configs = AppConfigs.get();
+		Properties configs = AppConfigs.get("test");
 		long timeout = 3;
 		
 		CacheService cache = new RedisCacheService(
