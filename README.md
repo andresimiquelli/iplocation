@@ -2,6 +2,31 @@
 
 Microservice that uses Kafka Streams to get the geolocation of an IP address from api IPStack. 
 
+## Input format
+
+#### Serialized Jason String
+
+##### clientId: String
+##### timestamp: Integer
+##### ip: String
+
+{"clientId":"client_id_value", "timestamp":12244111, "ip":"0.0.0.0"}
+
+## Output format
+
+#### Serialized Jason String
+
+##### clientId: String
+##### timestamp: Integer
+##### ip: String
+##### latitude: BigDecimal
+##### longitude: BigDecimal
+##### country: String
+##### region: String
+##### city: String
+
+{"clientId":"client_id_value", "timestamp":12244111, "ip":"0.0.0.0", "latitude": -22.2255555, "longitude": -5.5554444, "country":"United States", "region":"Virginia", "city":"Richmond"}
+
 ##  Configuration
 
 Edit default.properties for production and test.properties for tests.
